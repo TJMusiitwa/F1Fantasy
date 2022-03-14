@@ -11,7 +11,7 @@ class PointScoringScreen extends StatelessWidget {
             'Points Scoring',
             style: Theme.of(context)
                 .textTheme
-                .headline5
+                .headline5!
                 .copyWith(color: Colors.black),
           ),
           bottom: TabBar(
@@ -43,7 +43,7 @@ class PointScoringScreen extends StatelessWidget {
             QualifyingPositionBonuses(),
             Race(),
             FinishingPositionBonuses(),
-            Streaks(),
+            Streaks(context),
           ],
         ),
       ),
@@ -179,7 +179,7 @@ class PointScoringScreen extends StatelessWidget {
                 title: Text('Disqualification from race (driver only)'),
                 trailing: Text('-20 pts'),
               ),
-              Expanded(
+              SizedBox(
                 child: Container(),
               ),
               Text(
@@ -188,21 +188,22 @@ class PointScoringScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.grey,
-                    fontSize: 13,
+                    fontSize: 11,
                     fontWeight: FontWeight.w300),
               ),
+              const SizedBox(height: 10),
               Text(
                 '** Classification: Cars that have covered 90% of the number of laps covered by the winner (rounded down to the nears whole number of laps) will be deemed to have finished the race. Cars that have covered less than 90% of the number of laps covered by the winner (rounded down to the nearest whole number of laps), will not be classified. Classifications are based on FIA decisions',
                 softWrap: true,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.grey,
-                    fontSize: 13,
+                    fontSize: 11,
                     fontWeight: FontWeight.w300),
               ),
-              SizedBox(
-                height: kBottomNavigationBarHeight,
-              )
+              // SizedBox(
+              //   height: kBottomNavigationBarHeight,
+              // )
             ],
           ),
         ),
@@ -259,7 +260,7 @@ class PointScoringScreen extends StatelessWidget {
     );
   }
 
-  Widget Streaks() {
+  Widget Streaks(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -294,8 +295,8 @@ class PointScoringScreen extends StatelessWidget {
             '* When a driver or constructor achieves a streak, that streak will reset and must be built up again. For example: A driver achieves five top tens in a row. He will be awarded a streak, but must achieve another five top tens in a row to get streak points for a second time.',
             softWrap: true,
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.grey, fontSize: 13, fontWeight: FontWeight.w300),
+            style: Theme.of(context).textTheme.caption!.copyWith(
+                color: Colors.grey, fontSize: 11, fontWeight: FontWeight.w300),
           ),
           SizedBox(
             height: kBottomNavigationBarHeight,

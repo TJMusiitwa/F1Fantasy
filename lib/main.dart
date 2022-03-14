@@ -1,5 +1,6 @@
 import 'package:f1_fantasy/fantasyNav.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,19 +10,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'F1 Fantasy',
       theme: ThemeData(
-        primaryColor: Colors.red,
-        primaryColorBrightness: Brightness.dark,
+        primaryColor: Color.fromRGBO(255, 24, 1, 1),
         fontFamily: 'Formula1',
         appBarTheme: AppBarTheme(
-            color: Colors.white,
+            color: Color.fromRGBO(255, 24, 1, 1),
             elevation: 0,
-            brightness: Brightness.light,
-            iconTheme: IconThemeData(color: Colors.black)),
+            iconTheme: IconThemeData(color: Colors.white),
+            systemOverlayStyle: SystemUiOverlayStyle.light),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0xff000000),
                 width: 1.0,
+                style: BorderStyle.solid,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+              gapPadding: 4.0),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFD80000),
+                width: 1.2,
                 style: BorderStyle.solid,
               ),
               borderRadius: BorderRadius.all(Radius.circular(4.0)),
@@ -39,11 +47,9 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         primaryColor: Colors.black,
-        primaryColorBrightness: Brightness.dark,
-        accentColor: Colors.red,
-        accentColorBrightness: Brightness.dark,
         fontFamily: 'Formula1',
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.red),
       ),
       themeMode: ThemeMode.light,
       home: FantasyNav(),

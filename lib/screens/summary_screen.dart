@@ -9,7 +9,7 @@ class SummaryScreens extends StatelessWidget {
           'Summary',
           style: Theme.of(context)
               .textTheme
-              .headline5
+              .headline5!
               .copyWith(color: Colors.black),
         ),
       ),

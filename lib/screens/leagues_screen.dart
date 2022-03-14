@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:f1_fantasy/screens/leagues_sub_screens/create_league_screen.dart';
+import 'package:f1_fantasy/screens/leagues_sub_screens/join_league_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -38,14 +39,14 @@ class _LeaguesScreenState extends State<LeaguesScreen> {
                       child: CupertinoSegmentedControl(
                         children: leagueTitles,
                         groupValue: _selectedIndexValue,
-                        onValueChanged: (value) =>
+                        onValueChanged: (int value) =>
                             setState(() => _selectedIndexValue = value),
                         selectedColor: Colors.red,
                         borderColor: Colors.red,
                       ),
                     ),
                     Expanded(
-                      child: iOSContent[_selectedIndexValue],
+                      child: iOSContent[_selectedIndexValue] as Widget,
                     )
                   ],
                 ),
@@ -72,7 +73,7 @@ class JoinedTab extends StatelessWidget {
 
 class AndroidLeagueScreen extends StatelessWidget {
   const AndroidLeagueScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -85,7 +86,7 @@ class AndroidLeagueScreen extends StatelessWidget {
             'Leagues',
             style: Theme.of(context)
                 .textTheme
-                .headline5
+                .headline5!
                 .copyWith(color: Colors.black),
           ),
           bottom: TabBar(
@@ -122,86 +123,15 @@ class LobbyTab extends StatelessWidget {
           Row(
             children: [
               Spacer(),
-              OutlineButton.icon(
+              OutlinedButton.icon(
                 icon: Icon(
                   Icons.chevron_right,
                   color: Colors.red,
                 ),
                 label: Text('JOIN WITH A CODE'),
-                onPressed: () {
-                  Platform.isIOS
-                      ? showCupertinoDialog(
-                          context: context,
-                          barrierDismissible: true,
-                          builder: (_) => CupertinoAlertDialog(
-                            title: Text('Join with a code'),
-                            content: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'If you have received a league code,enter it here:',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .copyWith(fontWeight: FontWeight.w300),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                CupertinoTextField(
-                                  placeholder: 'Enter a league code here',
-                                ),
-                              ],
-                            ),
-                            actions: [
-                              CupertinoDialogAction(
-                                child: Text('JOIN'),
-                                onPressed: () {},
-                                textStyle: TextStyle(color: Colors.red),
-                              )
-                            ],
-                          ),
-                        )
-                      : showDialog(
-                          context: context,
-                          builder: (_) => SimpleDialog(
-                            title: Center(child: Text('Join with a code')),
-                            children: [
-                              Text(
-                                'If you have received a league code,enter it here:',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .copyWith(fontWeight: FontWeight.w300),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter a league code here',
-                                    labelText: 'League Code',
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: ElevatedButton(
-                                  child: Text('JOIN'),
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.red,
-                                  ),
-                                ),
-                              ),
-                            ],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                        );
-                },
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => JoinLeagueScreen(),
+                    fullscreenDialog: true)),
               ),
             ],
           ),

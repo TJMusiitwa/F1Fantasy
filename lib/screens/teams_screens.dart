@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:f1_fantasy/fantasyNav.dart';
 import 'package:f1_fantasy/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +8,6 @@ class TeamsScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: DropdownButton(
-          items: [],
-          onChanged: (value) {},
-        ),
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
@@ -21,6 +18,7 @@ class TeamsScreens extends StatelessWidget {
           )
         ],
       ),
+      drawer: FantasyDrawer(),
       body: Container(
         child: CarouselSlider(
           items: [

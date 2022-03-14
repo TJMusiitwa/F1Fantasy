@@ -39,7 +39,7 @@ class FAQScreen extends StatelessWidget {
                               text: 'How do I sign up to play F1® Fantasy?',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(
@@ -61,7 +61,7 @@ class FAQScreen extends StatelessWidget {
                                 'Can I pick both drivers from the same constructor and that constructor?',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
@@ -78,7 +78,7 @@ class FAQScreen extends StatelessWidget {
                             text: 'Can I have more than one team?',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
@@ -95,7 +95,7 @@ class FAQScreen extends StatelessWidget {
                             text: 'What is the Turbo Driver?',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
@@ -113,7 +113,7 @@ class FAQScreen extends StatelessWidget {
                             text: 'What is the Mega Driver?',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
@@ -131,7 +131,7 @@ class FAQScreen extends StatelessWidget {
                             text: 'What is the Wildcard?',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
@@ -154,7 +154,7 @@ class FAQScreen extends StatelessWidget {
                                   'How do I join the Global F1 League to play for the main prize?',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(
@@ -175,7 +175,7 @@ class FAQScreen extends StatelessWidget {
                                   'How do I create a private league for my friends and I?',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(
@@ -195,7 +195,7 @@ class FAQScreen extends StatelessWidget {
                               text: 'How do I join a private league?',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(
@@ -215,7 +215,7 @@ class FAQScreen extends StatelessWidget {
                               text: 'How do I delete a league?',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(
@@ -235,7 +235,7 @@ class FAQScreen extends StatelessWidget {
                               text: 'What can I win?',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(
@@ -260,7 +260,7 @@ class FAQScreen extends StatelessWidget {
                                 text: 'general@en.formula1.com',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1
+                                    .bodyText1!
                                     .copyWith(
                                         fontWeight: FontWeight.w300,
                                         decoration: TextDecoration.underline)),
@@ -277,7 +277,7 @@ class FAQScreen extends StatelessWidget {
                             text: 'f1@playon.co',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyText1!
                                 .copyWith(
                                     fontWeight: FontWeight.w300,
                                     decoration: TextDecoration.underline)),
