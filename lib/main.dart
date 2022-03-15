@@ -2,7 +2,10 @@ import 'package:f1_fantasy/fantasyNav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,6 +19,10 @@ class MyApp extends StatelessWidget {
             color: Color.fromRGBO(255, 24, 1, 1),
             elevation: 0,
             iconTheme: IconThemeData(color: Colors.white),
+            titleTextStyle: Theme.of(context)
+                .textTheme
+                .headline6!
+                .copyWith(color: Colors.white),
             systemOverlayStyle: SystemUiOverlayStyle.light),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(

@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 import 'package:f1_fantasy/screens/settings_sub_screens/faq_screen.dart';
 import 'package:f1_fantasy/screens/settings_sub_screens/game_rules_screen.dart';
 import 'package:f1_fantasy/screens/settings_sub_screens/points_scoring_screen.dart';
+import 'package:f1_fantasy/widgets/fantasy_webview.dart';
 import 'package:flutter/cupertino.dart' show showCupertinoModalPopup;
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,8 @@ class SettingsScreen extends StatelessWidget {
           'Settings',
           style: Theme.of(context)
               .textTheme
-              .headline5!
-              .copyWith(color: Colors.black),
+              .headline6!
+              .copyWith(color: Colors.white),
         ),
       ),
       body: SafeArea(
@@ -184,6 +185,17 @@ class SettingsScreen extends StatelessWidget {
                         }),
               ),
               ListTile(
+                leading: Icon(Icons.new_releases_outlined),
+                title: Text('What\'s New'),
+                iconColor: Colors.red,
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => FantasyWebView(
+                          webViewTitle: 'What\'s New',
+                          webViewURL:
+                              'https://fantasy.formula1.com/what-is-new',
+                        ))),
+              ),
+              ListTile(
                 leading: Icon(
                   Icons.info_outline,
                   color: Colors.red,
@@ -212,7 +224,7 @@ class SettingsScreen extends StatelessWidget {
                 'F1 Fantasy and registered trademarks are property of the Formula 1 Group.',
                 softWrap: true,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.labelSmall,
               )
             ],
           ),

@@ -1,24 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:f1_fantasy/fantasyNav.dart';
-import 'package:f1_fantasy/screens/settings_screen.dart';
+import 'package:f1_fantasy/widgets/fantasy_appbar.dart';
 import 'package:flutter/material.dart';
 
 class TeamsScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            color: Theme.of(context).primaryColor,
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => SettingsScreen())),
-            iconSize: 30,
-          )
-        ],
-      ),
-      drawer: FantasyDrawer(),
+      appBar: FantasyAppBar(appTitle: 'Teams'),
+      //drawer: FantasyDrawer(),
       body: Container(
         child: CarouselSlider(
           items: [

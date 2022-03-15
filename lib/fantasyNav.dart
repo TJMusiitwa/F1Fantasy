@@ -1,6 +1,8 @@
-import 'package:f1_fantasy/screens/leagues_screen.dart';
-import 'package:f1_fantasy/screens/summary_screen.dart';
-import 'package:f1_fantasy/screens/teams_screens.dart';
+import 'package:f1_fantasy/screens/gameplay/gameplay_screen.dart';
+import 'package:f1_fantasy/screens/leaderboards/leaderboards_screen.dart';
+import 'package:f1_fantasy/screens/lobby/leagues_screen.dart';
+import 'package:f1_fantasy/screens/my_games/summary_screen.dart';
+import 'package:f1_fantasy/screens/teams/teams_screens.dart';
 import 'package:flutter/material.dart';
 
 class FantasyNav extends StatefulWidget {
@@ -11,8 +13,10 @@ class FantasyNav extends StatefulWidget {
 class _FantasyNavState extends State<FantasyNav> {
   var _screens = [
     TeamsScreens(),
-    LeaguesScreen(),
+    LobbyScreen(),
     SummaryScreens(),
+    LeaderboardsScreen(),
+    GamePlayScreen()
   ];
 
   var _currentScreen = 0;
@@ -20,15 +24,21 @@ class _FantasyNavState extends State<FantasyNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens.elementAt(_currentScreen),
-      drawer: FantasyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(label: 'Teams', icon: Icon(Icons.badge)),
-          BottomNavigationBarItem(label: 'Leagues', icon: Icon(Icons.list)),
           BottomNavigationBarItem(
-              label: 'Summary', icon: Icon(Icons.pie_chart)),
+              label: 'Teams', icon: Icon(Icons.remember_me_outlined)),
+          BottomNavigationBarItem(
+              label: 'Lobby', icon: Icon(Icons.list_outlined)),
+          BottomNavigationBarItem(
+              label: 'My Games', icon: Icon(Icons.playlist_add_check)),
+          BottomNavigationBarItem(
+              label: 'Leaderboards', icon: Icon(Icons.leaderboard_outlined)),
+          BottomNavigationBarItem(
+              label: 'Gameplay', icon: Icon(Icons.assessment_outlined)),
         ],
         currentIndex: _currentScreen,
+        //type: BottomNavigationBarType.fixed,
         onTap: (newScreen) => setState(() => _currentScreen = newScreen),
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Theme.of(context).unselectedWidgetColor,
